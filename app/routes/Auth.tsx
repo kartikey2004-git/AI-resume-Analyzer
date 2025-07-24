@@ -10,7 +10,6 @@ export const meta = () => {
 };
 
 const Auth = () => {
-  
   const { isLoading, auth } = usePuterStore();
   const location = useLocation();
   const navigate = useNavigate();
@@ -21,27 +20,45 @@ const Auth = () => {
   }, [auth.isAuthenticated, next]);
 
   return (
-    <main className="bg-[url('/images/bg-auth.svg') bg-cover min-h-screen flex items-center justify-center">
+    <main className="relative min-h-screen flex items-center justify-center px-4">
       <div className="gradient-border shadow-lg">
-        <section className="flex flex-col gap-8 bg-white rounded-2xl p-10">
+        <section className="flex flex-col gap-8 rounded-2xl  bg-[#161636]  border-[#2a2a50]   backdrop-blur-2xl border  shadow-xl p-10 text-white">
           <div className="flex flex-col items-center gap-2 text-center">
-            <h1>Welcome</h1>
-            <h2>Log In to Continue Your Job Journey</h2>
+            <h1 className="text-3xl font-semibold tracking-wide text-white">
+              Welcome
+            </h1>
+            <h2 className="text-base text-gray-300">
+              Log in to continue your resume analyzing journey
+            </h2>
           </div>
 
           <div>
             {isLoading ? (
-              <button className="auth-button animate-pulse">
+              <button className="w-full py-3 text-white font-semibold rounded-xl bg-gradient-to-r from-blue-500 to-purple-600 animate-pulse">
                 <p>Signing You in...</p>
               </button>
             ) : (
               <>
                 {auth.isAuthenticated ? (
-                  <button className="auth-button" onClick={auth.signOut}>
-                    <p>Log out</p>
-                  </button>
+                  <div className="flex flex-col items-center gap-4">
+                    <p 
+                    onClick={() => navigate("/")}
+                    className="text-sm text-gray-300 hover:underline cursor-pointer">
+                      ← Back to Home Page
+                    </p>
+
+                    <button
+                      onClick={auth.signOut}
+                      className="w-full py-3 text-white font-semibold rounded-xl bg-gradient-to-r from-red-500 to-red-700 hover:brightness-110 transition-all"
+                    >
+                      Log out
+                    </button>
+                  </div>
                 ) : (
-                  <button className="auth-button" onClick={auth.signIn}>
+                  <button
+                    className="w-full py-3 text-white font-semibold rounded-xl bg-gradient-to-r from-blue-500 to-purple-600 hover:brightness-110 transition"
+                    onClick={auth.signIn}
+                  >
                     <p>Login</p>
                   </button>
                 )}

@@ -6,7 +6,7 @@ import {
   AccordionItem,
 } from "./Accordion";
 import ScoreBadge from "./ScoreBadge";
-import { cn } from "~/lib/utills";
+import { cn } from "~/lib/utils";
 
 const CategoryHeader = ({
   title,

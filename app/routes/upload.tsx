@@ -3,8 +3,8 @@ import Navbar from "~/components/Navbar";
 import FileUploader from "~/components/FileUploader";
 import { usePuterStore } from "~/lib/puter";
 import { useNavigate } from "react-router";
-import { convertPdfToImage } from "~/lib/pdfToimage";
-import { generateUUID } from "~/lib/utils";
+import { convertPdfToImage } from "~/lib/pdfToImage";
+import { generateUUID } from "~/lib/utills";
 import { prepareInstructions } from "constants/index";
 
 const Upload = () => {
@@ -97,63 +97,103 @@ const Upload = () => {
   };
 
   return (
-    <main className="bg-[url('/images/bg-main.svg')] bg-cover">
+    <main className="min-h-screen w-full bg-white text-black">
       <Navbar />
 
-      <section className="main-section">
-        <div className="page-heading py-16">
-          <h1>Smart feedback for your dream job</h1>
+      <section className="w-full px-4 md:px-8 py-12">
+        <div className="max-w-5xl mx-auto flex flex-col items-center text-center gap-6">
+          {/* Heading */}
+          <h1 className="text-3xl md:text-5xl font-semibold leading-tight text-gray-900">
+            Smart feedback for your dream job
+          </h1>
+
+          {/* Status or Instructions */}
           {isProcessing ? (
             <>
-              <h2>{statusText}</h2>
-              <img src="/images/resume-scan.gif" alt="" className="w-full" />
+              <h2 className="text-lg md:text-xl text-gray-700">{statusText}</h2>
+              <img
+                src="/images/resume-scan.gif"
+                alt="Scanning resume"
+                className="w-full max-w-md rounded-xl mt-6 shadow-lg"
+              />
             </>
           ) : (
-            <h2>Drop your resume for an ATS score and improvement tips</h2>
+            <h2 className="text-lg md:text-xl text-gray-600">
+              Drop your resume for an ATS score and improvement tips
+            </h2>
           )}
 
+          {/* Upload Form */}
           {!isProcessing && (
             <form
               id="upload-form"
               onSubmit={handleSubmit}
-              className="flex flex-col gap-4 mt-8"
+              className="w-full mt-10 bg-white border border-gray-200 rounded-2xl p-6 md:p-10 flex flex-col gap-6 shadow-lg"
             >
-              <div className="form-div">
-                <label htmlFor="company-name">Company Name</label>
+              {/* Company Name */}
+              <div className="flex flex-col gap-1">
+                <label
+                  htmlFor="company-name"
+                  className="text-sm items-start justify-start flex text-gray-700"
+                >
+                  Company Name
+                </label>
                 <input
                   type="text"
-                  name="company-name"
-                  placeholder="Company Name"
                   id="company-name"
+                  name="company-name"
+                  placeholder="e.g. Amazon"
+                  className="bg-gray-100 text-black px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-gray-400 focus:ring-1 "
                 />
               </div>
-              <div className="form-div">
-                <label htmlFor="job-title">Job Title</label>
+
+              {/* Job Title */}
+              <div className="flex flex-col gap-1">
+                <label
+                  htmlFor="job-title"
+                  className="items-start justify-start flex text-sm text-gray-700"
+                >
+                  Job Title
+                </label>
                 <input
                   type="text"
-                  name="job-title"
-                  placeholder="Job Title"
                   id="job-title"
+                  name="job-title"
+                  placeholder="e.g. Frontend Developer"
+                  className="bg-gray-100 text-black px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-gray-400 focus:ring-1 "
                 />
               </div>
-              <div className="form-div">
-                <label htmlFor="job-description">Job Description</label>
+
+              {/* Job Description */}
+              <div className="flex flex-col gap-1">
+                <label
+                  htmlFor="job-description"
+                  className="text-sm items-start justify-start flex text-gray-700"
+                >
+                  Job Description
+                </label>
                 <textarea
-                  rows={5}
-                  name="job-description"
-                  placeholder="Job Description"
                   id="job-description"
+                  name="job-description"
+                  rows={5}
+                  placeholder="Paste the job description here..."
+                  className="bg-gray-100 text-black px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-gray-400 focus:ring-1  resize-none"
                 />
               </div>
-              <div className="form-div">
-                <label htmlFor="uploader">Upload Resume</label>
+
+              {/* File Uploader */}
+              <div className="flex flex-col gap-1">
                 <FileUploader
                   key={file ? "selected" : "cleared"}
                   onFileSelect={handleFileSelect}
                 />
               </div>
 
-              <button className="primary-button" type="submit">
+              {/* Submit Button */}
+              <button
+                type="submit"
+                className="bg-[#161636]  border-[#2a2a50] text-white font-semibold py-3 rounded-xl transition duration-200"
+              >
                 Analyze Resume
               </button>
             </form>

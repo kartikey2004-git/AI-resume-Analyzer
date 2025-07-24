@@ -1,6 +1,8 @@
 import React, { useCallback } from "react";
 import { useDropzone } from "react-dropzone";
-import { formatSize } from "~/lib/utils";
+import { formatSize } from "~/lib/utills";
+import { IoClose } from "react-icons/io5";
+import { RiUploadCloud2Line } from "react-icons/ri";
 
 interface FileUploaderProps {
   onFileSelect?: (file: File | null) => void;
@@ -29,14 +31,14 @@ const FileUploader = ({ onFileSelect }: FileUploaderProps) => {
   const file = acceptedFiles[0] || null;
 
   return (
-    <div className="w-full gradient-border">
+    <div className="w-full bg-gradient-to-b from-light-blue-100 to-light-blue-200 p-4 rounded-2xl">
       <div {...getRootProps()}>
         <input {...getInputProps()} />
 
         <div className="space-y-4 cursor-pointer">
           {file ? (
             <div
-              className="uploader-selected-file"
+              className="flex items-center justify-between p-3 bg-gray-50 rounded-2xl"
               onClick={(e) => e.stopPropagation()}
             >
               <img src="/images/pdf.png" alt="pdf" className="size-10" />
@@ -57,13 +59,13 @@ const FileUploader = ({ onFileSelect }: FileUploaderProps) => {
                   onFileSelect?.(null);
                 }}
               >
-                <img src="/icons/cross.svg" alt="remove" className="w-4 h-4" />
+                <IoClose className="w-4 h-4" />
               </button>
             </div>
           ) : (
             <div>
               <div className="mx-auto w-16 h-16 flex items-center justify-center mb-2">
-                <img src="/icons/info.svg" alt="upload" className="size-20" />
+                <RiUploadCloud2Line className="w-10 h-10" />
               </div>
               <p className="text-lg text-gray-500">
                 <span className="font-semibold">Click to upload</span> or drag

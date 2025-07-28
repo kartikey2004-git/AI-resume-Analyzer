@@ -1,87 +1,65 @@
-# Welcome to React Router!
+# 📄 AI Resume Analyzer
 
-A modern, production-ready template for building full-stack React applications using React Router.
-
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/remix-run/react-router-templates/tree/main/default)
-
-## Features
-
-- 🚀 Server-side rendering
-- ⚡️ Hot Module Replacement (HMR)
-- 📦 Asset bundling and optimization
-- 🔄 Data loading and mutations
-- 🔒 TypeScript by default
-- 🎉 TailwindCSS for styling
-- 📖 [React Router docs](https://reactrouter.com/)
-
-## Getting Started
-
-### Installation
-
-Install the dependencies:
-
-```bash
-npm install
-```
-
-### Development
-
-Start the development server with HMR:
-
-```bash
-npm run dev
-```
-
-Your application will be available at `http://localhost:5173`.
-
-## Building for Production
-
-Create a production build:
-
-```bash
-npm run build
-```
-
-## Deployment
-
-### Docker Deployment
-
-To build and run using Docker:
-
-```bash
-docker build -t my-app .
-
-# Run the container
-docker run -p 3000:3000 my-app
-```
-
-The containerized application can be deployed to any platform that supports Docker, including:
-
-- AWS ECS
-- Google Cloud Run
-- Azure Container Apps
-- Digital Ocean App Platform
-- Fly.io
-- Railway
-
-### DIY Deployment
-
-If you're familiar with deploying Node applications, the built-in app server is production-ready.
-
-Make sure to deploy the output of `npm run build`
-
-```
-├── package.json
-├── package-lock.json (or pnpm-lock.yaml, or bun.lockb)
-├── build/
-│   ├── client/    # Static assets
-│   └── server/    # Server-side code
-```
-
-## Styling
-
-This template comes with [Tailwind CSS](https://tailwindcss.com/) already configured for a simple default starting experience. You can use whatever CSS framework you prefer.
+A lightweight browser-based web app that lets users upload resumes and job descriptions, then receive AI-powered insights and a concise summary using **Puter.js**—no backend servers required.
 
 ---
 
-Built with ❤️ using React Router.
+## 🚀 What It Does
+
+- Upload your resume (PDF or text) to store locally using Puter.js  
+- Provide a job title or description to tailor analysis  
+- Get an **ATS score**, summary of skills, tone & structure, and improvement tips powered by GPT/Claude through Puter.js cloud AI  
+- Secure, user-contained file storage and authentication built into your browser session
+
+---
+
+## 🧠 Why I Built It
+
+- Inspired by tutorials like JavaScript Mastery’s AI resume analyzer using Puter.js, I wanted an app that works completely client-side—upload, analyze, store, and view feedback without spinning up a server or backend infrastructure. It uses Puter.js to authenticate users, store files, and execute AI calls in-browser ..
+
+---
+
+## ✅ Core Features
+
+- File upload and secure storage via Puter.js  
+- GPT-powered resume evaluation and summary  
+- ATS-like scoring and structured feedback for improvement  
+- Secure sign-in, user-specific data, and preference handling—all client‑side
+
+---
+
+## 🛠 Setup & Run
+
+```bash
+git clone https://github.com/kartikey2004-git/AI-resume-Analyzer.git
+cd AI-resume-Analyzer
+npm install
+npm run dev
+```
+
+Then open in browser (usually at http://localhost:5173) and authenticate via Puter.js. You don’t need to manage API keys or backend.
+
+### 🎯 What I Learned
+- How Puter.js powers frontend-only AI apps: authentication, file system, AI calls—completely serverless 
+
+- How to build a smooth UI for resume input, feedback, and ATS scoring
+
+- How to prompt GPT/Claude effectively for structured resume analysis
+
+- How to manage user sessions and clean data using Puter.js APIs
+
+### 🔭 What’s Next
+- Add functionality to analyze multiple resumes and track history
+
+- Enable export of improved summaries (PDF or markdown)
+
+- Support email-based resume submission or integration with job APIs
+
+- Add more insights: job-fit percentage, role-based suggestions, phrasing improvement
+
+- Polish UI transitions and add download/share options
+
+
+----
+Ready to optimize resumes on the fly?
+This app brings AI résumé insight right into your browser—simple, secure, and serverless.

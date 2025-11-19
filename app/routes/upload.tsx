@@ -192,7 +192,7 @@ const Upload = () => {
               {/* Submit Button */}
               <button
                 type="submit"
-                className="bg-[#161636]  border-[#2a2a50] text-white font-semibold py-3 rounded-xl transition duration-200"
+                className="border-2 border-gray-200 font-semibold py-3 rounded-xl transition duration-200"
               >
                 Analyze Resume
               </button>

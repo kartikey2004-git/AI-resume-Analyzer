@@ -63,8 +63,8 @@ const Resume = () => {
   }, [id]);
 
   return (
-    <main className="!pt-0">
-      <nav className="flex flex-row justify-between items-center p-4 border-b px-4 py-3 gap-2 border-gray-200">
+    <main className="pt-0">
+      <nav className="flex justify-between items-center px-4 py-3 border-b border-gray-200">
         <Link
           to="/"
           className="flex items-center gap-2 hover:opacity-80 transition"
@@ -76,41 +76,45 @@ const Resume = () => {
         </Link>
       </nav>
 
+      {/* MAIN WRAPPER */}
+
       <div className="flex w-full max-lg:flex-col-reverse gap-6 px-4 md:px-8">
-        <section className="relative  h-screen max-lg:h-[50vh]  top-0 flex items-center justify-center rounded-xl">
+        {/* LEFT – RESUME PREVIEW */}
+        <section className="relative flex justify-center items-start lg:w-1/2 w-full">
           {imageUrl && resumeUrl && (
-            <div className="flex flex-col gap-8  px-8 max-lg:w-full py-6 animate-in fade-in duration-1000 gradient-border h-[90%] w-fit max-w-md mx-auto p-2 rounded-2xl">
+            <div className="w-full max-w-md p-2 rounded-2xl gradient-border animate-in fade-in duration-1000">
               <a href={resumeUrl} target="_blank" rel="noopener noreferrer">
                 <img
                   src={imageUrl}
                   alt="Uploaded Resume"
                   title="resume"
-                  className="w-full max-h-[90vh] object-cover rounded-2xl shadow-lg border border-gray-200"
+                  className="w-full object-contain rounded shadow-lg border border-gray-200"
                 />
               </a>
             </div>
           )}
         </section>
 
-        <section className="flex flex-col gap-8 w-1/2 px-8 max-lg:w-full py-6 flex-1 space-y-8">
-
-          <h2 className="text-4xl !text-black font-semibold">Resume Review</h2>
+        <section className="flex flex-col gap-8 lg:w-1/2 w-full py-6">
+          <h2 className="text-3xl lg:text-4xl font-semibold text-black">
+            Resume Review
+          </h2>
 
           {feedback ? (
-            <div className="flex flex-col animate-in fade-in duration-1000">
-               <Summary feedback={feedback} />
-               <ATS
+            <div className="flex flex-col gap-6 animate-in fade-in duration-1000">
+              <Summary feedback={feedback} />
+              <ATS
                 score={feedback.ATS.score || 0}
                 suggestions={feedback.ATS.tips || []}
               />
               <Details feedback={feedback} />
             </div>
           ) : (
-            <div className="flex items-center justify-center w-full">
+            <div className="flex justify-center">
               <img
                 src="/images/resume-scan-2.gif"
                 alt="Scanning..."
-                className="w-full max-w-md"
+                className="w-full max-w-sm"
               />
             </div>
           )}

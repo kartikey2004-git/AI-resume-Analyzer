@@ -5,7 +5,7 @@ import { usePuterStore } from "~/lib/puter";
 import { useNavigate } from "react-router";
 import { convertPdfToImage } from "~/lib/pdfToImage";
 import { generateUUID } from "~/lib/utills";
-import { prepareInstructions } from "constants/index";
+import { prepareInstructions } from "../../constants";
 
 const Upload = () => {
   const { isLoading, auth, fs, ai, kv } = usePuterStore();
